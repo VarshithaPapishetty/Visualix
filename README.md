@@ -1,6 +1,6 @@
 # Visualix
 
-A Flutter-based Android app that enables Circle to Search on Android and iOS devices, performs sentiment analysis on images (detecting emotions like happy, sad, neutral), and features an in-app camera for capturing images without needing an external camera app.
+A Flutter-based Android app that enables Circle to Search on Android and iOS devices enabling editing of images, performs sentiment analysis on images (detecting emotions like happy, sad, neutral), and features an in-app camera for capturing images without needing an external camera app.
 
 Tech Stack : Dart,Android Studio, Flutter(framework)
 
