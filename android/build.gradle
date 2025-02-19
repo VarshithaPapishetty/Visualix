@@ -1,0 +1,41 @@
+// Top-level build.gradle file (rootProject/build.gradle)
+
+buildscript {
+    ext {
+        buildToolsVersion = "33.0.0"  // Updated Build Tools version
+        compileSdkVersion = 33        // Aligned compileSdkVersion
+        targetSdkVersion = 33        // Aligned targetSdkVersion
+        minSdkVersion = 21            // Ensured minimum SDK version
+        kotlinVersion = "1.8.0"      // Ensured Kotlin version
+    }
+
+    repositories {
+        google()  // Google's Maven repository
+        mavenCentral()  // Maven Central repository
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.1.1'  // Updated AGP version
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"  // Kotlin Gradle plugin
+    }
+}
+
+allprojects {
+    repositories {
+        google()  // Google's Maven repository
+        mavenCentral()  // Central Maven repository
+        maven { url 'https://jitpack.io' }  // Jitpack repository for Flutter-related dependencies
+        maven { url 'https://dl.google.com/dl/android/maven2/' }  // Explicit Google Maven repo
+    }
+}
+
+rootProject.buildDir = "../build"
+
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+    project.evaluationDependsOn(":app")
+}
+
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
+}
